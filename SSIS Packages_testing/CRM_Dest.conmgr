@@ -1,0 +1,13 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="CRM_Dest"
+  DTS:DTSID="{333CA56C-9343-4F9C-B99C-AFFA62E673A3}"
+  DTS:CreationName="DynamicsCRM">
+  <DTS:ObjectData>
+    <CrmConnectionManager
+      ConnectionString="AuthenticationType=OAuth;ServiceEndpoint=Soap2011;UserName=;Domain=;ServerUrl=https://smspreprod-ntgcrm.crm3.dynamics.com;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;OAuthType=ClientCredentials;ClientAppId=4bdfc1e1-e3f5-4cd3-85a2-26e65d41f355;CertificateThumbprint=;AuthorizationServerUrl=;ServiceResource=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False;TimezoneConversionEngine=Auto">
+      <ClientSecret
+        Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAVmcch9Ap60yG46hX8lAy8AAAAAACAAAAAAAQZgAAAAEAACAAAAAGeF/OrOYji54rTdvIVqQloRCFB1Nl9e8qeKsHjSIwYgAAAAAOgAAAAAIAACAAAABVC1n6u7O05gOrhDtu7DWK+9wby/LBhqE+mvwlr/2m24AAAAA2C9SO7Iggd+tPcqifAwfH1ASiEwiCdanQetmaWbgnoiS9prN2ExHGgWdrsBynsxd/ZwbMuyWjFytys+B7xMPlggnuo0sTruzj9NH4Hb3Dtfyz3xbFPi0hjcZtkbsz1bcan8M69oSUEmqAAHglkYbs+O/N8unY/55Z9XfO2pMPckAAAABs49GcxW3jg1rl+e48BEsAL9VoKDlN2GPXaxQAYpS2HcJHni9pQ2AhV86U1besTefZNGTZYg5W0GfRd4/2tCNL</ClientSecret>
+    </CrmConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

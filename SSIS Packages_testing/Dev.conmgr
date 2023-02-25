@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Dev"
+  DTS:DTSID="{4698467F-D990-44B4-BAC0-FA52CE1C435A}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=DATAFACTORY\DATAFACTORYDEV;User ID=boomi_dev;Initial Catalog=EAD_Master;Provider=SQLNCLI11.1;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAVmcch9Ap60yG46hX8lAy8AAAAAACAAAAAAAQZgAAAAEAACAAAAARNDCry2Wog5acLglyqeNV3PnMWmcTOe55rxWR5/BuUgAAAAAOgAAAAAIAACAAAAChLeSd1RY2IQi6EK/cHnQCUkXeMhrSrTXk6sK24dkZHoAAAAAOumQtVGrVyqyPcAAIiHwaKIvD4aZAJ/RuodF9rWv1JfXSy6KePt5CCX3UmTInprRoLDWjO9yQrA/RUKRcOET32vNj9uyToLFR0xrhC5wCSCebwA6kyE771ZRyCobs+t1TqbzfkbS8eefYNarCs9dxHCtDEkVBiu66mm+Jw27JJkAAAABsVN6NZKqXlt5thDUDt+hr5bWtjs+UZvZUOBQ+A853f/2VB5JPWBnG/X7Cr3JmENfI6jnMeWcyDs1xnuP8mH9m</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
