@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-CA7SA86I\ChandraSekhar"
   DTS:DTSID="{730E6E2D-31DE-430C-BAA1-19DFAB84F3F4}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
   DTS:LocaleID="16393"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="56"
-  DTS:VersionGUID="{6349DC0A-2E5B-46B1-A695-1488F1F955E9}">
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{1FA91898-61BA-4E32-8945-B87177EFC3C1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,27 +23,9 @@
       DTS:ObjectName="LocalHost.Transactional Data Migration">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=.;Initial Catalog=Transactional Data Migration;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[stg_quotehdr_closed]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{AE621065-CA5A-4710-88B2-BB2770B7E41B}"
-      DTS:ObjectName="stg_quotehdr_closed">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Chandra\Jira Tickets\Sprint 18_1\EAD-16508_Data Migration (Transactional Tasks) Cycle 4 Testing &amp; Validation - Pre-Prod SID\Historical\Quotes\Quote Header\Quote Historical Header.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[stg_quotehdr_open]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{950AF5EF-2F06-4F56-9811-7E8D68134906}"
-      DTS:ObjectName="stg_quotehdr_open">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Chandra\Jira Tickets\Sprint 18_1\EAD-16508_Data Migration (Transactional Tasks) Cycle 4 Testing &amp; Validation - Pre-Prod SID\Open\Quotes\Quote Header\Quote Open Orders.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -164,7 +146,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -182,8 +164,8 @@
               <connections>
                 <connection
                   refId="Package\Load Stage Quote HDR open\Excel Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[stg_quotehdr_open]"
-                  connectionManagerRefId="Package.ConnectionManagers[stg_quotehdr_open]"
+                  connectionManagerID="{950AF5EF-2F06-4F56-9811-7E8D68134906}:invalid"
+                  connectionManagerRefId="{950AF5EF-2F06-4F56-9811-7E8D68134906}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -847,7 +829,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -914,89 +896,89 @@
                       cachedLength="255"
                       cachedName="Potential Customer"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Potential Customer]"
-                      lineageId="Package\Load Stage Quote HDR open\2222:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Potential Customer]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Pricing Start Date]"
                       cachedDataType="date"
                       cachedName="Pricing Start Date"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pricing Start Date]"
-                      lineageId="Package\Load Stage Quote HDR open\2223:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Pricing Start Date]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Pricing End Date]"
                       cachedDataType="date"
                       cachedName="Pricing End Date"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pricing End Date]"
-                      lineageId="Package\Load Stage Quote HDR open\2224:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Pricing End Date]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Contact]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Contact"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Contact]"
-                      lineageId="Package\Load Stage Quote HDR open\2225:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Contact]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Topic]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Topic"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Topic]"
-                      lineageId="Package\Load Stage Quote HDR open\2226:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Topic]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Type]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Type"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
-                      lineageId="Package\Load Stage Quote HDR open\2227:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Type]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sub Type]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Sub Type"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sub Type]"
-                      lineageId="Package\Load Stage Quote HDR open\2228:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Sub Type]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Price List]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Price List"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price List]"
-                      lineageId="Package\Load Stage Quote HDR open\2229:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Price List]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Owner]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Owner"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Owner]"
-                      lineageId="Package\Load Stage Quote HDR open\2230:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Owner]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Territory]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Territory"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Territory]"
-                      lineageId="Package\Load Stage Quote HDR open\2231:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Territory]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[District]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="District"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[District]"
-                      lineageId="Package\Load Stage Quote HDR open\2232:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[District]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Region]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Region"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
-                      lineageId="Package\Load Stage Quote HDR open\2233:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Region]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Distributor]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Distributor"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Distributor]"
-                      lineageId="Package\Load Stage Quote HDR open\2234:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Distributor]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Currency]"
                       cachedDataType="wstr"
@@ -1010,91 +992,91 @@
                       cachedLength="255"
                       cachedName="WBS Number"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WBS Number]"
-                      lineageId="Package\Load Stage Quote HDR open\2235:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[WBS Number]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NTG Prime]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="NTG Prime"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NTG Prime]"
-                      lineageId="Package\Load Stage Quote HDR open\2236:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[NTG Prime]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Status]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Status"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
-                      lineageId="Package\Load Stage Quote HDR open\2237:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Status]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Status Reason]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Status Reason"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status Reason]"
-                      lineageId="Package\Load Stage Quote HDR open\2238:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Status Reason]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sales Stage]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Sales Stage"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sales Stage]"
-                      lineageId="Package\Load Stage Quote HDR open\2239:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Sales Stage]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Opportunity Comments]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Opportunity Comments"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Opportunity Comments]"
-                      lineageId="Package\Load Stage Quote HDR open\2240:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Opportunity Comments]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Consultant]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Consultant"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Consultant]"
-                      lineageId="Package\Load Stage Quote HDR open\2241:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Consultant]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Bid On File]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Bid On File"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Bid On File]"
-                      lineageId="Package\Load Stage Quote HDR open\2242:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Bid On File]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Proposal Due Date]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Proposal Due Date"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Proposal Due Date]"
-                      lineageId="Package\Load Stage Quote HDR open\2243:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Proposal Due Date]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Proposal Received]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Proposal Received"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Proposal Received]"
-                      lineageId="Package\Load Stage Quote HDR open\2244:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Proposal Received]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Proposal Type]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Proposal Type"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Proposal Type]"
-                      lineageId="Package\Load Stage Quote HDR open\2245:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Proposal Type]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Budget Amount]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Budget Amount"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Budget Amount]"
-                      lineageId="Package\Load Stage Quote HDR open\2220:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[Budget Amount]" />
                     <inputColumn
                       refId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RMA Case]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="RMA Case"
                       externalMetadataColumnId="Package\Load Stage Quote HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RMA Case]"
-                      lineageId="Package\Load Stage Quote HDR open\2246:invalid" />
+                      lineageId="Package\Load Stage Quote HDR open\Excel Source.Outputs[Excel Source Output].Columns[RMA Case]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1369,7 +1351,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.stg_quote_header_closed</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.stg_quote_header_closed</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -6501,7 +6483,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM OPENQUERY(SHADES , 'select * from [INTEGRATION_SMSDEV].[dbo].[VW_Quotes_Historic_All_Attributes]')</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM OPENQUERY(SHADES , 'select * from [INTEGRATION_SMSDEV].[dbo].[VW_Quotes_Historic_All_Attributes]')</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -15425,7 +15407,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.stg_quote_header_open</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.stg_quote_header_open</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -20582,7 +20564,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM OPENQUERY(SHADES , 'select * from [INTEGRATION_SMSDEV].[dbo].[VW_Quotes_Open_All_Attributes]')</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM OPENQUERY(SHADES , 'select * from [INTEGRATION_SMSDEV].[dbo].[VW_Quotes_Open_All_Attributes]')</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -29524,29 +29506,29 @@
         <NodeLayout
           Size="225.333333333334,42.6666666666667"
           Id="Package\Quote Headers\Load Stage Quote HDR closed"
-          TopLeft="28.49999281019,107.614039535117" />
+          TopLeft="5.50000000000003,108.166666666667" />
         <NodeLayout
           Size="218.666666666667,42.6666666666667"
           Id="Package\Quote Headers\Load Stage Quote HDR open"
-          TopLeft="28.4999928101899,198.421056855749" />
+          TopLeft="8.83333333333337,210.833333333334" />
         <NodeLayout
-          Size="161.333333333334,42.6666666666667"
+          Size="136,42.6666666666667"
           Id="Package\Quote Headers\truncate stg table"
-          TopLeft="31.8333260938525,25.5087748317948" />
+          TopLeft="50.1666666666667,5.50000000000004" />
         <EdgeLayout
           Id="Package\Quote Headers.PrecedenceConstraints[Constraint]"
-          TopLeft="139.49999281019,150.280706201784">
+          TopLeft="118.166666666667,150.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48.1403506539653"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,40.6403506539653">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.6403506539653" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29557,30 +29539,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Quote Headers.PrecedenceConstraints[Constraint 1]"
-          TopLeft="112.499992760519,68.1754414984615">
+          TopLeft="118.166666666667,48.1666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="28.6666667163375,39.4385980366555"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="28.6666667163375,31.9385980366555">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.7192990183278" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.7192990183278"
-                    Point2="0,19.7192990183278"
-                    Point3="4,19.7192990183278" />
-                  <mssgle:LineSegment
-                    End="24.6666667163375,19.7192990183278" />
-                  <mssgle:CubicBezierSegment
-                    Point1="24.6666667163375,19.7192990183278"
-                    Point2="28.6666667163375,19.7192990183278"
-                    Point3="28.6666667163375,23.7192990183278" />
-                  <mssgle:LineSegment
-                    End="28.6666667163375,31.9385980366555" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29592,8 +29562,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="275.333333333334,308"
-          Size="275.333333333334,350.666666666667"
+          PanelSize="236.666666666667,308.666666666667"
+          Size="236.666666666667,351.333333333334"
           Id="Package\Quote Headers"
           TopLeft="325.833328478039,95.7894754872098" />
       </GraphLayout>

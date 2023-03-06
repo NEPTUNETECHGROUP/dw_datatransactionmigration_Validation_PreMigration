@@ -5,10 +5,8 @@
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=dfactsql-pre-t;User ID=svc_ead_s_t;Initial Catalog=ead_master;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-      <DTS:Password
-        DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAVmcch9Ap60yG46hX8lAy8AAAAAACAAAAAAAQZgAAAAEAACAAAACWGIlT166PA1T2YuhqYdmHw1HnP3IJXirrT3faaEOwUwAAAAAOgAAAAAIAACAAAABv6N+KYmE4o9rKvUuZ0ooXzLvJy7sSTt75v4vuYqoO34AAAAA5bsRbZsXOodCsNLq8WgJMUTaGb6+yN85k8hJej8Bqa8YZh4gR7z62G2k8663E0mhjSSKQwcs8ZS+p/otGaYBuKJrr+2MPMp6jStec85afI416BtT36f/zHT3oUwtaqWpq+0lW0pCxjhTXFV/MKcLRpip91JwGph9GvUxUQ/1Ju0AAAABK6A97DsIn7QusgMTeSXZU54Z1tHqFUw43u3w6WRv2/4OXtx3ksCqolCBiONniPIXu0ym+u2z5MB1KaR+S2bsP</DTS:Password>
-    </DTS:ConnectionManager>
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=dfactsql-pre-t;Initial Catalog=ead_master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-{282FCED1-B2E0-48AE-AF77-EE8876AD1151}Pre-Prod;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

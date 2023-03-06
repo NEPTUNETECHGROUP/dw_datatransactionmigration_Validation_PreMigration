@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-CA7SA86I\ChandraSekhar"
   DTS:DTSID="{27DA1C0E-A14A-4942-83A1-0163E6A7532C}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
   DTS:LocaleID="16393"
   DTS:ObjectName="Open n Closed Order Header"
   DTS:PackageType="5"
-  DTS:VersionBuild="74"
-  DTS:VersionGUID="{535E7ACD-B77A-4A39-97C1-5B2E554B5600}">
+  DTS:VersionBuild="77"
+  DTS:VersionGUID="{16077DD0-A97A-4CF7-A2F8-0FB44EA18730}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,6 +23,8 @@
       DTS:ObjectName="LocalHost.Transactional Data Migration">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=.;Initial Catalog=Transactional Data Migration;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -33,6 +35,8 @@
       DTS:ObjectName="stg_orderhdr_closed">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Chandra\Jira Tickets\Sprint 17\EAD-16514_Pre-Migration Activity Validate Data Extracts - Sprint 17\Historical\Orders\Order Header\Order-SMS-4245-Order data for Migration Historical.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -43,6 +47,8 @@
       DTS:ObjectName="stg_orderhdr_closed_open in 1 file">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Chandra\Jira Tickets\Sprint 18_1\EAD-16508_Data Migration (Transactional Tasks) Cycle 4 Testing &amp; Validation - Pre-Prod SID\Orders\Order Header\Orders.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -53,6 +59,8 @@
       DTS:ObjectName="stg_orderhdr_open">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Chandra\Jira Tickets\Sprint 17\EAD-16514_Pre-Migration Activity Validate Data Extracts - Sprint 17\Open\Orders\Order Header\Order-Open Orders Data for Migration.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -109,7 +117,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1397,7 +1405,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.[stg_crm_order_header] hdr
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.[stg_crm_order_header] hdr
     left join
   (select distinct [order] from [migration].stg_order_product_header where quantity &gt; 0) product
    on hdr.[Order ID] = product.[order]
@@ -3656,7 +3664,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4944,7 +4952,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.[stg_crm_order_header] hdr
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.[stg_crm_order_header] hdr
   inner join 
       (select distinct [order] from [migration].stg_order_product_header where quantity &gt; 0) product
       on hdr.[Order ID] = product.[order]</property>
@@ -7249,7 +7257,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.stg_crm_order_header</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.stg_crm_order_header</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -9194,7 +9202,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  * FROM OPENQUERY(SHADES , 'select * from [INTEGRATION_SMSDEV].[dbo].[VW_Orders_Historic_Open_All_Attributes]')</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  * FROM OPENQUERY(SHADES , 'select * from [INTEGRATION_SMSDEV].[dbo].[VW_Orders_Historic_Open_All_Attributes]')</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -13100,7 +13108,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -15269,7 +15277,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -15385,7 +15393,7 @@
                           cachedLength="255"
                           cachedName="OldOrderGuid"
                           externalMetadataColumnId="Package\Sequence Container\Load Stage Order HDR closed\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldOrderGUID]"
-                          lineageId="Package\Sequence Container\Load Stage Order HDR closed\2247:invalid" />
+                          lineageId="Package\Sequence Container\Load Stage Order HDR closed\2222:invalid" />
                         <inputColumn
                           refId="Package\Sequence Container\Load Stage Order HDR closed\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Total Tax (Base)]"
                           cachedDataType="wstr"
@@ -16022,7 +16030,7 @@
                           cachedLength="255"
                           cachedName="OldOpportunityNumber"
                           externalMetadataColumnId="Package\Sequence Container\Load Stage Order HDR closed\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldOpportunityNumber]"
-                          lineageId="Package\Sequence Container\Load Stage Order HDR closed\2248:invalid" />
+                          lineageId="Package\Sequence Container\Load Stage Order HDR closed\2223:invalid" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -17115,7 +17123,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -19307,7 +19315,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -19423,7 +19431,7 @@
                           cachedLength="255"
                           cachedName="OldOrderGuid"
                           externalMetadataColumnId="Package\Sequence Container\Load Stage Order HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldOrderGUID]"
-                          lineageId="Package\Sequence Container\Load Stage Order HDR open\2249:invalid" />
+                          lineageId="Package\Sequence Container\Load Stage Order HDR open\2224:invalid" />
                         <inputColumn
                           refId="Package\Sequence Container\Load Stage Order HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Total Tax (Base)]"
                           cachedDataType="wstr"
@@ -20060,7 +20068,7 @@
                           cachedLength="255"
                           cachedName="OldOpportunityNumber"
                           externalMetadataColumnId="Package\Sequence Container\Load Stage Order HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldOpportunityNumber]"
-                          lineageId="Package\Sequence Container\Load Stage Order HDR open\2250:invalid" />
+                          lineageId="Package\Sequence Container\Load Stage Order HDR open\2225:invalid" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">

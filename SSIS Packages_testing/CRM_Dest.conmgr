@@ -5,9 +5,10 @@
   DTS:CreationName="DynamicsCRM">
   <DTS:ObjectData>
     <CrmConnectionManager
-      ConnectionString="AuthenticationType=OAuth;ServiceEndpoint=Soap2011;UserName=;Domain=;ServerUrl=https://smspreprod-ntgcrm.crm3.dynamics.com;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;OAuthType=ClientCredentials;ClientAppId=4bdfc1e1-e3f5-4cd3-85a2-26e65d41f355;CertificateThumbprint=;AuthorizationServerUrl=;ServiceResource=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False;TimezoneConversionEngine=Auto">
+      ConnectionString="AuthenticationType=OAuth;ServiceEndpoint=Soap2011;UserName=;Domain=;ServerUrl=https://smspreprod-ntgcrm.crm3.dynamics.com;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;OAuthType=ClientCredentials;ClientAppId=4bdfc1e1-e3f5-4cd3-85a2-26e65d41f355;CertificateThumbprint=;AuthorizationServerUrl=;ServiceResource=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False;TimezoneConversionEngine=Auto"
+      ConnectByProxy="False">
       <ClientSecret
-        Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAVmcch9Ap60yG46hX8lAy8AAAAAACAAAAAAAQZgAAAAEAACAAAAAGeF/OrOYji54rTdvIVqQloRCFB1Nl9e8qeKsHjSIwYgAAAAAOgAAAAAIAACAAAABVC1n6u7O05gOrhDtu7DWK+9wby/LBhqE+mvwlr/2m24AAAAA2C9SO7Iggd+tPcqifAwfH1ASiEwiCdanQetmaWbgnoiS9prN2ExHGgWdrsBynsxd/ZwbMuyWjFytys+B7xMPlggnuo0sTruzj9NH4Hb3Dtfyz3xbFPi0hjcZtkbsz1bcan8M69oSUEmqAAHglkYbs+O/N8unY/55Z9XfO2pMPckAAAABs49GcxW3jg1rl+e48BEsAL9VoKDlN2GPXaxQAYpS2HcJHni9pQ2AhV86U1besTefZNGTZYg5W0GfRd4/2tCNL</ClientSecret>
+        Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0cQGcZAKlkS/IPHftsO83wAAAAACAAAAAAADZgAAwAAAABAAAACxr/5daX3IylpnYauMnkVqAAAAAASAAACgAAAAEAAAAG1cmy1yTxfX+rYUMtbnmwyAAAAA4PL2a3XEPE2RG77AbnlL6JAELuXD7dZSBfVSQMVl4cPIxan7sUKJ3g1i0RpJnW2Bk/SvNLqHKgC78HrgYVBo889HH53NmqQzXwHoR8Srdq2IA/FF6JQh67FxwPlfptu6T4k/DL2BwS70qf+8rABqw6J57rkWHJBsM4QOjdtb1ZkUAAAAhRec/M+wn1KUecKqMSD/wedc0Bw=</ClientSecret>
     </CrmConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

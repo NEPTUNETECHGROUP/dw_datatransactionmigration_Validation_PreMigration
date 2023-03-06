@@ -5,10 +5,8 @@
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=DFACTORSQL-Q-T;User ID=svc_ead_q_t;Initial Catalog=ead_master;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-      <DTS:Password
-        DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAljg0o3JSoU+neIbJCSCngQAAAAACAAAAAAAQZgAAAAEAACAAAACm9PKzSAFIq366fII5SOBhCFcGJVWhs0ocfppJm2LcJgAAAAAOgAAAAAIAACAAAADEA+7P1f5FjDKBCpqEPd9ZIC3d6etu7bDMu2Mr1mrwtIAAAAAzucH1wDyr6JsnUJEV/970S0vasogK2HqM00G13uK7Jau1ry32pAnqLJWwPna85ncBwNyeGXbGbO3c6G1/AYWwQBe3sBILC0sxODkCuOVELL+pmBvh8si/BA7Srqna9hSlMZIRzCfBmU0XDDARlW8ykd3Zwkd2JMIqB74vueVVmEAAAAC9W84cxMXajIdQzA18IalXvh4Y+EIR8S3tWc2A4gf97Z2uZRoOrBc2hiycE9oogbLWUnFttHVXdt8Bf7hjuL9J</DTS:Password>
-    </DTS:ConnectionManager>
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DFACTORSQL-Q-T;Initial Catalog=ead_master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-{8A81AFA0-2875-4211-9282-1A61B889ECC7}QA;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>
