@@ -8,12 +8,12 @@
   DTS:DelayValidation="True"
   DTS:DTSID="{FCB6FECD-BEA7-4D57-A61F-05763196E6E8}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
   DTS:LocaleID="16393"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="58"
-  DTS:VersionGUID="{BDE7BA21-86E7-42F0-A289-B2CF039CA696}">
+  DTS:VersionBuild="64"
+  DTS:VersionGUID="{C63F2ADA-0389-4569-BD46-C4F5A49D9B7B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,28 +24,9 @@
       DTS:ObjectName="LocalHost.Transactional Data Migration">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=.;Initial Catalog=Transactional Data Migration;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Source Excel Cn_Opp_closed]"
-      DTS:CreationName="EXCEL"
-      DTS:DelayValidation="True"
-      DTS:DTSID="{E2628D1E-BC68-4F25-928E-734FBA976212}"
-      DTS:ObjectName="Source Excel Cn_Opp_closed">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Chandra\Jira Tickets\Sprint 18_1\EAD-16508_Data Migration (Transactional Tasks) Cycle 4 Testing &amp; Validation - Pre-Prod SID\Historical\Opportunity\Opportunity Historical Closed.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Source Excel Cn_Opp_open]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{1D1D374C-0AC8-4B48-9ADB-245CFBC2EDCB}"
-      DTS:ObjectName="Source Excel Cn_Opp_open">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Chandra\Jira Tickets\Sprint 18_1\EAD-16508_Data Migration (Transactional Tasks) Cycle 4 Testing &amp; Validation - Pre-Prod SID\Open\Opportunity\Opportunity Open Orders.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -308,7 +289,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.crm_stringmapentity_datavalidation</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.crm_stringmapentity_datavalidation</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -544,7 +525,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.stg_opportunities_closed</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.stg_opportunities_closed</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -557,7 +538,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">3</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -5666,7 +5647,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM OPENQUERY(SHADES , 'select * from [INTEGRATION_SMSDEV].[dbo].[VW_Opportunities_Historic_All_Attributes]')</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM OPENQUERY(SHADES , 'select * from [INTEGRATION_SMSDEV].[dbo].[VW_Opportunities_Historic_All_Attributes]')</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -14590,7 +14571,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.stg_opportunities_open</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.stg_opportunities_open</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -19722,7 +19703,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM OPENQUERY(SHADES , 'select * from [INTEGRATION_SMSDEV].[dbo].[VW_Opportunities_Open_All_Attributes]')</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM OPENQUERY(SHADES , 'select * from [INTEGRATION_SMSDEV].[dbo].[VW_Opportunities_Open_All_Attributes]')</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -28767,35 +28748,35 @@
           Id="Package\Opportunities\Export String Map Entity\OLE DB Destination"
           TopLeft="257.14285331113,132.280704244242" />
         <NodeLayout
-          Size="193.333333333334,42.6666666666667"
+          Size="157.333333333334,42.6666666666667"
           Id="Package\Opportunities\Export String Map Entity\Export String Map entity"
           TopLeft="232.49999653548,27.8245619272371" />
         <EdgeLayout
           Id="Package\Opportunities\Export String Map Entity.Paths[Primary Output]"
-          TopLeft="329.166663202147,70.4912285939038">
+          TopLeft="311.166663202147,70.4912285939038">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="15.3095234423166,61.7894756503383"
+              EndConnector="33.3095234423167,61.7894756503382"
               Start="0,0"
-              End="15.3095234423166,54.2894756503383">
+              End="33.3095234423167,54.2894756503382">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.8947378251692" />
+                    End="0,26.8947378251691" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.8947378251692"
-                    Point2="0,30.8947378251692"
-                    Point3="4,30.8947378251692" />
+                    Point1="0,26.8947378251691"
+                    Point2="0,30.8947378251691"
+                    Point3="4,30.8947378251691" />
                   <mssgle:LineSegment
-                    End="11.3095234423166,30.8947378251692" />
+                    End="29.3095234423167,30.8947378251691" />
                   <mssgle:CubicBezierSegment
-                    Point1="11.3095234423166,30.8947378251692"
-                    Point2="15.3095234423166,30.8947378251692"
-                    Point3="15.3095234423166,34.8947378251692" />
+                    Point1="29.3095234423167,30.8947378251691"
+                    Point2="33.3095234423167,30.8947378251691"
+                    Point3="33.3095234423167,34.8947378251691" />
                   <mssgle:LineSegment
-                    End="15.3095234423166,54.2894756503383" />
+                    End="33.3095234423167,54.2894756503382" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

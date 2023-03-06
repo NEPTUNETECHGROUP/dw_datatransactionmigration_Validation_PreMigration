@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-CA7SA86I\ChandraSekhar"
   DTS:DTSID="{B0E4B329-84F9-4336-AC22-2C141C69555D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
   DTS:LocaleID="16393"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="124"
-  DTS:VersionGUID="{1FF179DE-35D7-48C5-B313-7440F9F3B07F}">
+  DTS:VersionBuild="137"
+  DTS:VersionGUID="{A246374D-AFBD-4C7D-AE64-BF66730975E3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,6 +23,8 @@
       DTS:ObjectName="LocalHost.Transactional Data Migration">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=.;Initial Catalog=Transactional Data Migration;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -33,6 +35,8 @@
       DTS:ObjectName="stg_orderprd_closed">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Chandra\Jira Tickets\Sprint 17\EAD-16514_Pre-Migration Activity Validate Data Extracts - Sprint 17\Historical\Orders\Order Product\Order Product-SMS-4245-Order Products for Migration Historical.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -43,6 +47,8 @@
       DTS:ObjectName="stg_orderprd_closed_open in 1 file">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Chandra\Jira Tickets\Sprint 18_1\EAD-16508_Data Migration (Transactional Tasks) Cycle 4 Testing &amp; Validation - Pre-Prod SID\Orders\Order Products\Order Products.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -53,6 +59,8 @@
       DTS:ObjectName="stg_orderprd_open">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Chandra\Jira Tickets\Sprint 17\EAD-16514_Pre-Migration Activity Validate Data Extracts - Sprint 17\Open\Orders\Order product\Order Product-Open Order Products.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -108,7 +116,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.[crm_OrderHdrnotinOrderPrd_Closed]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.[crm_OrderHdrnotinOrderPrd_Closed]</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -285,7 +293,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct a.salesorderid as OldOrderGUID,c.ntg_opportunitynumber as Opportunitynumber,a.ordernumber as [Order ID],
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct a.salesorderid as OldOrderGUID,c.ntg_opportunitynumber as Opportunitynumber,a.ordernumber as [Order ID],
 a.statecode as [Status], a.statuscode as [Status Reason],
 'Order Header Not in Order Product Closed' as Comment
 from migration.[stg_crm_order_header_closed] a
@@ -531,7 +539,7 @@ where b.salesorderid is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.[crm_OrderPrdnotinOrderHdr_Closed]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.[crm_OrderPrdnotinOrderHdr_Closed]</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -682,7 +690,7 @@ where b.salesorderid is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct a.salesorderdetailid as OrderProduct,b.ordernumber as [order],a.lineitemnumber as [Line Item Number], 
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct a.salesorderdetailid as OrderProduct,b.ordernumber as [order],a.lineitemnumber as [Line Item Number], 
 'Order Product Not in Order Header Closed' as Comment
 from migration.stg_order_product_header_closed a
 left join migration.[stg_crm_order_header_closed]  b on a.salesorderid=b.salesorderid
@@ -928,7 +936,7 @@ where b.salesorderid is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.[crm_OrderHdrnotinOrderPrd_Open]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.[crm_OrderHdrnotinOrderPrd_Open]</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1105,7 +1113,7 @@ where b.salesorderid is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct a.salesorderid as OldOrderGUID,c.ntg_opportunitynumber as Opportunitynumber,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct a.salesorderid as OldOrderGUID,c.ntg_opportunitynumber as Opportunitynumber,
 a.ordernumber as [Order ID],a.statecode as [Status], a.statuscode as [Status Reason],
 'Order Header Not in Order Product Open' as Comment
 from migration.[stg_crm_order_header_open] a
@@ -1351,7 +1359,7 @@ where b.salesorderid is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.[crm_OrderPrdnotinOrderHdr_Open]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.[crm_OrderPrdnotinOrderHdr_Open]</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1502,7 +1510,7 @@ where b.salesorderid is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct a.salesorderdetailid as OrderProduct,b.ordernumber as [order],a.lineitemnumber as [Line Item Number],
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct a.salesorderdetailid as OrderProduct,b.ordernumber as [order],a.lineitemnumber as [Line Item Number],
 'Order Product Not in Order Header Open' as Comment
 from migration.stg_order_product_header_open a
 left join migration.[stg_crm_order_header_open]  b on a.salesorderid=b.salesorderid
@@ -1748,7 +1756,7 @@ where b.salesorderid is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.crm_stringmapentity_missingstatuses</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.crm_stringmapentity_missingstatuses</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1889,7 +1897,7 @@ where b.salesorderid is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct a.statecode,a.[Statuscode],'Closed Opportunity' as CRMSource from migration.stg_opportunities_closed a
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct a.statecode,a.[Statuscode],'Closed Opportunity' as CRMSource from migration.stg_opportunities_closed a
 --inner join dbo.systemuser su on a.createdby=su.systemuserid
 left join migration.crm_stringmapentity_datavalidation s on a.[Statuscode]=s.[value]
 and s.attributename = 'statuscode' AND s.objecttypecode = 'opportunity'
@@ -2163,7 +2171,7 @@ where s.value is null and s1.value is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.[stg_crm_order_header_closed]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.[stg_crm_order_header_closed]</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4060,6 +4068,22 @@ where s.value is null and s1.value is null</property>
                           refId="Package\Load Order Header using Quantity\Load Stage Order HDR closed\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ntg_ishistoricalname]"
                           dataType="nText"
                           name="ntg_ishistoricalname" />
+                        <externalMetadataColumn
+                          refId="Package\Load Order Header using Quantity\Load Stage Order HDR closed\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ntg_billtoaccount]"
+                          dataType="guid"
+                          name="ntg_billtoaccount" />
+                        <externalMetadataColumn
+                          refId="Package\Load Order Header using Quantity\Load Stage Order HDR closed\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ntg_ordertype]"
+                          dataType="i4"
+                          name="ntg_ordertype" />
+                        <externalMetadataColumn
+                          refId="Package\Load Order Header using Quantity\Load Stage Order HDR closed\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ntg_shiptoaddress]"
+                          dataType="guid"
+                          name="ntg_shiptoaddress" />
+                        <externalMetadataColumn
+                          refId="Package\Load Order Header using Quantity\Load Stage Order HDR closed\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ntg_soldtoaccount]"
+                          dataType="guid"
+                          name="ntg_soldtoaccount" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -4113,7 +4137,7 @@ where s.value is null and s1.value is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select hdr.* from migration.[stg_crm_order_header] hdr
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select hdr.* from migration.[stg_crm_order_header] hdr
     left join
   (select distinct salesorderid from [migration].stg_order_product_header where quantity &lt;&gt; 0) product
    on hdr.salesorderid = product.salesorderid
@@ -7476,7 +7500,7 @@ where s.value is null and s1.value is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from migration.[stg_crm_order_header_open]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from migration.[stg_crm_order_header_open]</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -8614,6 +8638,22 @@ where s.value is null and s1.value is null</property>
                           length="50"
                           name="sourcetype" />
                         <externalMetadataColumn
+                          refId="Package\Load Order Header using Quantity\Load Stage Order HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ntg_billtoaccount]"
+                          dataType="guid"
+                          name="ntg_billtoaccount" />
+                        <externalMetadataColumn
+                          refId="Package\Load Order Header using Quantity\Load Stage Order HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ntg_ordertype]"
+                          dataType="i4"
+                          name="ntg_ordertype" />
+                        <externalMetadataColumn
+                          refId="Package\Load Order Header using Quantity\Load Stage Order HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ntg_shiptoaddress]"
+                          dataType="guid"
+                          name="ntg_shiptoaddress" />
+                        <externalMetadataColumn
+                          refId="Package\Load Order Header using Quantity\Load Stage Order HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ntg_soldtoaccount]"
+                          dataType="guid"
+                          name="ntg_soldtoaccount" />
+                        <externalMetadataColumn
                           refId="Package\Load Order Header using Quantity\Load Stage Order HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[salesorderid]"
                           dataType="guid"
                           name="salesorderid" />
@@ -9426,7 +9466,7 @@ where s.value is null and s1.value is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select hdr.* from migration.[stg_crm_order_header] hdr
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select hdr.* from migration.[stg_crm_order_header] hdr
   inner join 
       (select distinct salesorderid from [migration].stg_order_product_header where quantity &lt;&gt; 0) product
       on hdr.salesorderid = product.salesorderid</property>
@@ -12835,7 +12875,7 @@ where s.value is null and s1.value is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [EAD_Master].[migration].[stg_order_product_header]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [EAD_Master].[migration].[stg_order_product_header]</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -14106,7 +14146,7 @@ where s.value is null and s1.value is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  * FROM OPENQUERY(SHADES , 'select * from [INTEGRATION_SMSDEV].[dbo].[VW_OrderProducts_Historic_Open_All_Attributes]')</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  * FROM OPENQUERY(SHADES , 'select * from [INTEGRATION_SMSDEV].[dbo].[VW_OrderProducts_Historic_Open_All_Attributes]')</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -16310,7 +16350,7 @@ where s.value is null and s1.value is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [migration].stg_order_product_header_closed</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [migration].stg_order_product_header_closed</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -17608,7 +17648,7 @@ where s.value is null and s1.value is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select a.* from [migration].stg_order_product_header a
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select a.* from [migration].stg_order_product_header a
 left join (select distinct salesorderdetailid from [migration].stg_order_product_header where quantity&lt;&gt;0) b 
 on a.salesorderdetailid = b.salesorderdetailid
 where b.salesorderdetailid is null</property>
@@ -19776,7 +19816,7 @@ where b.salesorderdetailid is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [migration].stg_order_product_header_open</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [migration].stg_order_product_header_open</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -21052,7 +21092,7 @@ where b.salesorderdetailid is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select a.* from [migration].stg_order_product_header a
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select a.* from [migration].stg_order_product_header a
 inner join (select distinct salesorderdetailid from [migration].stg_order_product_header where quantity &lt;&gt; 0) b 
 on a.salesorderdetailid = b.salesorderdetailid</property>
                     <property
@@ -23751,7 +23791,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -25223,7 +25263,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
