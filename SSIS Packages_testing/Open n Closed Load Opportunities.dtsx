@@ -12,8 +12,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="64"
-  DTS:VersionGUID="{C63F2ADA-0389-4569-BD46-C4F5A49D9B7B}">
+  DTS:VersionBuild="74"
+  DTS:VersionGUID="{117C0686-5105-43D1-92C7-B2200391D44C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28626,14 +28626,80 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Opportunities.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{2C01727B-5EDB-44BC-8D03-5704E5DCB5C4}"
+          DTS:DTSID="{18E09D4F-E933-41F6-B831-4459C7B4BB8C}"
           DTS:From="Package\Opportunities\Stg_opportunities Check_Open"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\Opportunities\Export String Map Entity" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Source types for Closed and Open Opportunities"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{CD83A7A4-287D-4E38-BE5E-66057F285847}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Source types for Closed and Open Opportunities">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Update Source types for Closed and Open Opportunities\Update Source Type for closed opportunity"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{46852989-d8e7-4d11-8d1e-823e6edc4cfd}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Source Type for closed opportunity"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{8A81AFA0-2875-4211-9282-1A61B889ECC7}"
+              SQLTask:SqlStatementSource="update migration.stg_opportunities_closed set sourcetype= 'C'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Update Source types for Closed and Open Opportunities\Update Source Type for open opportunity"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{39fc65d3-ee71-4796-af20-6a1e3906d528}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Source Type for open opportunity"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{8A81AFA0-2875-4211-9282-1A61B889ECC7}"
+              SQLTask:SqlStatementSource="update migration.stg_opportunities_open set sourcetype= 'O'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Update Source types for Closed and Open Opportunities.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{738BD1E6-D3BC-4353-8242-6B0AAC5AE4FB}"
+          DTS:From="Package\Update Source types for Closed and Open Opportunities\Update Source Type for closed opportunity"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Update Source types for Closed and Open Opportunities\Update Source Type for open opportunity" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A70540D2-93C2-4C8E-A225-D3339A3D106A}"
+      DTS:From="Package\Opportunities"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update Source types for Closed and Open Opportunities" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -28645,11 +28711,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="194.666666666667,42.6666666666667"
-          Id="Package\Opportunities\Export String Map Entity"
-          TopLeft="38.8333281551798,268.63158560988" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="232,42.6666666666667"
           Id="Package\Opportunities\Stg_opportunities Check_closed"
@@ -28706,20 +28768,24 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\Opportunities\Export String Map Entity"
+          TopLeft="32.8333281551798,278.63158560988" />
         <EdgeLayout
           Id="Package\Opportunities.PrecedenceConstraints[Constraint 2]"
-          TopLeft="133.666663990666,220.280704896756">
+          TopLeft="130.666663990666,220.280704896756">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48.3508807131242"
+              EndConnector="0,58.3508807131244"
               Start="0,0"
-              End="0,40.8508807131242">
+              End="0,50.8508807131244">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.8508807131242" />
+                    End="0,50.8508807131244" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -28731,10 +28797,81 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="264,364.666666666667"
-          Size="264,407.333333333334"
+          PanelSize="253.333333333334,368"
+          Size="253.333333333334,411.333333333334"
           Id="Package\Opportunities"
-          TopLeft="308.472217625628,42.7251470030253" />
+          TopLeft="360.472217625628,53.7251470030253" />
+        <NodeLayout
+          Size="218.666666666667,42.6666666666667"
+          Id="Package\Update Source types for Closed and Open Opportunities\Update Source Type for closed opportunity"
+          TopLeft="5.50000000000001,5.50000000000004" />
+        <EdgeLayout
+          Id="Package\Update Source types for Closed and Open Opportunities.PrecedenceConstraints[Constraint 4]"
+          TopLeft="114.833333333333,48.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="213.333333333334,42.6666666666667"
+          Id="Package\Update Source types for Closed and Open Opportunities\Update Source Type for open opportunity"
+          TopLeft="8.16666666666667,108.166666666667" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="229.333333333334,205.333333333334"
+          Size="229.333333333334,248.666666666667"
+          Id="Package\Update Source types for Closed and Open Opportunities"
+          TopLeft="749,150" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="613.805550958961,259.391813669692">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="135.194449041038,14.9415196636414"
+              Start="0,0"
+              End="127.694449041038,14.9415196636414">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="63.5972245205192,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63.5972245205192,0"
+                    Point2="67.5972245205192,0"
+                    Point3="67.5972245205192,4" />
+                  <mssgle:LineSegment
+                    End="67.5972245205192,10.9415196636414" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.5972245205192,10.9415196636414"
+                    Point2="67.5972245205192,14.9415196636414"
+                    Point3="71.5972245205192,14.9415196636414" />
+                  <mssgle:LineSegment
+                    End="127.694449041038,14.9415196636414" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>

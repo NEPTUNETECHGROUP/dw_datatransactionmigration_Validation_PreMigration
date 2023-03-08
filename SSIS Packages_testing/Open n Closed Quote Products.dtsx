@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="96"
-  DTS:VersionGUID="{A4A45301-0709-4C1A-8E3C-D095AD1FA0BB}">
+  DTS:VersionBuild="117"
+  DTS:VersionGUID="{219F496E-FDCE-4368-B97E-AC46AD66ECB9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -734,6 +734,18 @@ where b.opportunityid is null</property>
                           cachedName="Copy of Comment"
                           externalMetadataColumnId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comments]"
                           lineageId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Comment]" />
+                        <inputColumn
+                          refId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[closed Quote Products Opportunity ID]"
+                          cachedDataType="guid"
+                          cachedName="closed Quote Products Opportunity ID"
+                          externalMetadataColumnId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[closed Quote Products Opportunity ID]"
+                          lineageId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[closed Quote Products Opportunity ID]" />
+                        <inputColumn
+                          refId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[closed Quote Header Opportunity ID]"
+                          cachedDataType="guid"
+                          cachedName="closed Quote Header Opportunity ID"
+                          externalMetadataColumnId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[closed Quote Header Opportunity ID]"
+                          lineageId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[closed Quote Header Opportunity ID]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -761,6 +773,14 @@ where b.opportunityid is null</property>
                           dataType="wstr"
                           length="255"
                           name="Comments" />
+                        <externalMetadataColumn
+                          refId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[closed Quote Products Opportunity ID]"
+                          dataType="guid"
+                          name="closed Quote Products Opportunity ID" />
+                        <externalMetadataColumn
+                          refId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[closed Quote Header Opportunity ID]"
+                          dataType="guid"
+                          name="closed Quote Header Opportunity ID" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -817,6 +837,8 @@ where b.opportunityid is null</property>
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct 
 a.productname as [Opportunity Product],
 b.ntg_opportunitynumber as [Opportunity Number],
+a.opportunityid as [closed Quote Products Opportunity ID],
+b.opportunityid as [closed Quote Header Opportunity ID],
 a.lineitemnumber as [Line Item Number],
 a.ntg_productnumber as [Part number],
 'Quote Products Not in Quote Header Closed' as Comment
@@ -908,6 +930,24 @@ where b.opportunityid is null</property>
                           lineageId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Part number]"
                           name="Part number"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[closed Quote Products Opportunity ID]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[closed Quote Products Opportunity ID]"
+                          lineageId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[closed Quote Products Opportunity ID]"
+                          name="closed Quote Products Opportunity ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[closed Quote Header Opportunity ID]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[closed Quote Header Opportunity ID]"
+                          lineageId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[closed Quote Header Opportunity ID]"
+                          name="closed Quote Header Opportunity ID"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -936,6 +976,14 @@ where b.opportunityid is null</property>
                           dataType="wstr"
                           length="100"
                           name="Part number" />
+                        <externalMetadataColumn
+                          refId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[closed Quote Products Opportunity ID]"
+                          dataType="guid"
+                          name="closed Quote Products Opportunity ID" />
+                        <externalMetadataColumn
+                          refId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[closed Quote Header Opportunity ID]"
+                          dataType="guid"
+                          name="closed Quote Header Opportunity ID" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -955,6 +1003,16 @@ where b.opportunityid is null</property>
                           length="50"
                           lineageId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Opportunity Number]"
                           name="Opportunity Number" />
+                        <outputColumn
+                          refId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[closed Quote Products Opportunity ID]"
+                          dataType="guid"
+                          lineageId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[closed Quote Products Opportunity ID]"
+                          name="closed Quote Products Opportunity ID" />
+                        <outputColumn
+                          refId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[closed Quote Header Opportunity ID]"
+                          dataType="guid"
+                          lineageId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[closed Quote Header Opportunity ID]"
+                          name="closed Quote Header Opportunity ID" />
                         <outputColumn
                           refId="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Line Item Number]"
                           dataType="i4"
@@ -1564,6 +1622,18 @@ where b.opportunityid is null</property>
                           cachedName="Comment"
                           externalMetadataColumnId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[comments]"
                           lineageId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]" />
+                        <inputColumn
+                          refId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Open Quote Products Opportunity ID]"
+                          cachedDataType="guid"
+                          cachedName="Open Quote Products Opportunity ID"
+                          externalMetadataColumnId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Open Quote Products Opportunity ID]"
+                          lineageId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Open Quote Products Opportunity ID]" />
+                        <inputColumn
+                          refId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Open Quote Header Opportunity ID]"
+                          cachedDataType="guid"
+                          cachedName="Open Quote Header Opportunity ID"
+                          externalMetadataColumnId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Open Quote Header Opportunity ID]"
+                          lineageId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Open Quote Header Opportunity ID]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1592,6 +1662,14 @@ where b.opportunityid is null</property>
                           dataType="str"
                           length="50"
                           name="comments" />
+                        <externalMetadataColumn
+                          refId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Open Quote Products Opportunity ID]"
+                          dataType="guid"
+                          name="Open Quote Products Opportunity ID" />
+                        <externalMetadataColumn
+                          refId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Open Quote Header Opportunity ID]"
+                          dataType="guid"
+                          name="Open Quote Header Opportunity ID" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -1647,6 +1725,8 @@ where b.opportunityid is null</property>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct a.productname as [Opportunity Product],
 b.ntg_opportunitynumber as [Opportunity Number],
+a.opportunityid as [Open Quote Products Opportunity ID],
+b.opportunityid as [Open Quote Header Opportunity ID],
 a.lineitemnumber as [Line Item Number],
 a.ntg_productnumber as [Part number],
 'Quote Products Not in Quote Header Open' as Comment
@@ -1738,6 +1818,24 @@ where b.opportunityid is null</property>
                           lineageId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Part number]"
                           name="Part number"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Open Quote Products Opportunity ID]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Open Quote Products Opportunity ID]"
+                          lineageId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Open Quote Products Opportunity ID]"
+                          name="Open Quote Products Opportunity ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Open Quote Header Opportunity ID]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Open Quote Header Opportunity ID]"
+                          lineageId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Open Quote Header Opportunity ID]"
+                          name="Open Quote Header Opportunity ID"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1766,6 +1864,14 @@ where b.opportunityid is null</property>
                           dataType="wstr"
                           length="100"
                           name="Part number" />
+                        <externalMetadataColumn
+                          refId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Open Quote Products Opportunity ID]"
+                          dataType="guid"
+                          name="Open Quote Products Opportunity ID" />
+                        <externalMetadataColumn
+                          refId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Open Quote Header Opportunity ID]"
+                          dataType="guid"
+                          name="Open Quote Header Opportunity ID" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -1785,6 +1891,16 @@ where b.opportunityid is null</property>
                           length="50"
                           lineageId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Opportunity Number]"
                           name="Opportunity Number" />
+                        <outputColumn
+                          refId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Open Quote Products Opportunity ID]"
+                          dataType="guid"
+                          lineageId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Open Quote Products Opportunity ID]"
+                          name="Open Quote Products Opportunity ID" />
+                        <outputColumn
+                          refId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Open Quote Header Opportunity ID]"
+                          dataType="guid"
+                          lineageId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Open Quote Header Opportunity ID]"
+                          name="Open Quote Header Opportunity ID" />
                         <outputColumn
                           refId="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Line Item Number]"
                           dataType="i4"
@@ -1878,23 +1994,6 @@ where b.opportunityid is null</property>
       DTS:ObjectName="Load Quote Products to Stg tables">
       <DTS:Variables />
       <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\Load Quote Products to Stg tables\Execute SQL Task"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{6BF8FA64-4D17-4FE8-98F7-5CEAA539EF7A}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Execute SQL Task"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{8A81AFA0-2875-4211-9282-1A61B889ECC7}"
-              SQLTask:SqlStatementSource="truncate table migration.stg_quote_products_closed&#xA;truncate table migration.stg_quote_products_open" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Load Quote Products to Stg tables\Load Stage Quote Prd closed"
           DTS:CreationName="Microsoft.Pipeline"
@@ -15681,6 +15780,23 @@ where b.opportunityid is null</property>
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Quote Products to Stg tables\truncate stg table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6BF8FA64-4D17-4FE8-98F7-5CEAA539EF7A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="truncate stg table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{8A81AFA0-2875-4211-9282-1A61B889ECC7}"
+              SQLTask:SqlStatementSource="truncate table migration.stg_quote_products_closed&#xA;truncate table migration.stg_quote_products_open" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
@@ -15695,10 +15811,66 @@ where b.opportunityid is null</property>
           DTS:refId="Package\Load Quote Products to Stg tables.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
           DTS:DTSID="{9C7AC0ED-875B-4428-9ADF-8B9C7A4754C8}"
-          DTS:From="Package\Load Quote Products to Stg tables\Execute SQL Task"
+          DTS:From="Package\Load Quote Products to Stg tables\truncate stg table"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\Load Quote Products to Stg tables\Load Stage Quote Prd closed" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{15C98680-5885-4694-A438-91FC4C82670F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Update Source Type for closed quote prd'"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5cc4baee-10ab-4bef-b712-f2a890b288dd}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Source Type for closed quote prd'"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{8A81AFA0-2875-4211-9282-1A61B889ECC7}"
+              SQLTask:SqlStatementSource="update migration.stg_quote_products_closed set sourcetype='C'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Update Source Type for open quote prd'"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{b7aa07ae-049c-48e3-88ab-06f64e608074}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Source Type for open quote prd'"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{8A81AFA0-2875-4211-9282-1A61B889ECC7}"
+              SQLTask:SqlStatementSource="update migration.stg_quote_products_open set sourcetype='O'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{D6B93FBD-3133-4A50-A5A7-2D69E07869E0}"
+          DTS:From="Package\Sequence Container\Update Source Type for closed quote prd'"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Update Source Type for open quote prd'" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -18311,11 +18483,11 @@ where b.opportunityid is null</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{A14A6F0E-3F19-4145-8F5C-E6D1AD5B9E41}"
+      DTS:DTSID="{B96BEAF9-6B36-451E-BE7E-733F460D3F32}"
       DTS:From="Package\Load Quote Products to Stg tables"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Check Qiote Headers are there in Products for Historical" />
+      DTS:To="Package\Sequence Container" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -18324,6 +18496,14 @@ where b.opportunityid is null</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Check Quote Headers are there in Products for Open" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{4BB235E5-A1AD-46EF-8366-D5E1E2BA7BA2}"
+      DTS:From="Package\Sequence Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Check Qiote Headers are there in Products for Historical" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -18340,29 +18520,29 @@ where b.opportunityid is null</property>
         <NodeLayout
           Size="276,42.6666666666667"
           Id="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Headers not in Quote Prds"
-          TopLeft="37.1666665300727,199.929830708772" />
+          TopLeft="12.1666666666667,210.833333333334" />
         <NodeLayout
           Size="289.333333333334,42.6666666666667"
           Id="Package\Check Qiote Headers are there in Products for Historical\Closed_Quote Products not in Quote header"
-          TopLeft="28,97.754390189082" />
+          TopLeft="5.5,108.166666666667" />
         <NodeLayout
           Size="192.666666666667,42.6666666666667"
           Id="Package\Check Qiote Headers are there in Products for Historical\truncate stg table"
-          TopLeft="62.1666661575436,16.1403516327357" />
+          TopLeft="53.8333333333333,5.50000000000004" />
         <EdgeLayout
           Id="Package\Check Qiote Headers are there in Products for Historical.PrecedenceConstraints[Constraint]"
-          TopLeft="173.91666659837,140.421056855749">
+          TopLeft="150.166666666667,150.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.5087738530233"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,52.0087738530233">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.0087738530233" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18373,30 +18553,18 @@ where b.opportunityid is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Check Qiote Headers are there in Products for Historical.PrecedenceConstraints[Constraint 1]"
-          TopLeft="158.499999490877,58.8070182994024">
+          TopLeft="150.166666666667,48.1666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14.1666671757897,38.9473718896796"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="14.1666671757897,31.4473718896796">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.4736859448398" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.4736859448398"
-                    Point2="0,19.4736859448398"
-                    Point3="4,19.4736859448398" />
-                  <mssgle:LineSegment
-                    End="10.1666671757897,19.4736859448398" />
-                  <mssgle:CubicBezierSegment
-                    Point1="10.1666671757897,19.4736859448398"
-                    Point2="14.1666671757897,19.4736859448398"
-                    Point3="14.1666671757897,23.4736859448398" />
-                  <mssgle:LineSegment
-                    End="14.1666671757897,31.4473718896796" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18408,48 +18576,36 @@ where b.opportunityid is null</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="327.333333333334,298"
-          Size="327.333333333334,340.666666666667"
+          PanelSize="300,308"
+          Size="300,351.333333333334"
           Id="Package\Check Qiote Headers are there in Products for Historical"
-          TopLeft="450.666664928199,76.6315803897681" />
+          TopLeft="735.666664928199,83.6315803897682" />
         <NodeLayout
           Size="269.333333333334,42.6666666666667"
           Id="Package\Check Quote Headers are there in Products for Open\Open_Quote Headers not in Quote Prds"
-          TopLeft="54.1666531935336,194.771936916358" />
+          TopLeft="12.1666666666667,210.166666666667" />
         <NodeLayout
           Size="282.666666666667,42.6666666666667"
           Id="Package\Check Quote Headers are there in Products for Open\Open_Quote Products not in Quote header"
-          TopLeft="59.1666531190278,111.75439149411" />
+          TopLeft="5.5,107.5" />
         <NodeLayout
           Size="192.666666666667,42"
           Id="Package\Check Quote Headers are there in Products for Open\truncate stg table"
-          TopLeft="86.6666527092459,32.877195094541" />
+          TopLeft="50.5,5.5" />
         <EdgeLayout
           Id="Package\Check Quote Headers are there in Products for Open.PrecedenceConstraints[Constraint]"
-          TopLeft="200.499986452361,154.421058160777">
+          TopLeft="146.833333333333,150.166666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-11.6666665921609,40.3508787555818"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="-11.6666665921609,32.8508787555818">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.1754393777909" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.1754393777909"
-                    Point2="0,20.1754393777909"
-                    Point3="-4,20.1754393777909" />
-                  <mssgle:LineSegment
-                    End="-7.66666659216088,20.1754393777909" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-7.66666659216088,20.1754393777909"
-                    Point2="-11.6666665921609,20.1754393777909"
-                    Point3="-11.6666665921609,24.1754393777909" />
-                  <mssgle:LineSegment
-                    End="-11.6666665921609,32.8508787555818" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18460,30 +18616,18 @@ where b.opportunityid is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Check Quote Headers are there in Products for Open.PrecedenceConstraints[Constraint 1]"
-          TopLeft="182.999986042579,74.877195094541">
+          TopLeft="146.833333333333,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="17.500000409782,36.877196399569"
+              EndConnector="0,60"
               Start="0,0"
-              End="17.500000409782,29.377196399569">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.4385981997845" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.4385981997845"
-                    Point2="0,18.4385981997845"
-                    Point3="4,18.4385981997845" />
-                  <mssgle:LineSegment
-                    End="13.500000409782,18.4385981997845" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.500000409782,18.4385981997845"
-                    Point2="17.500000409782,18.4385981997845"
-                    Point3="17.500000409782,22.4385981997845" />
-                  <mssgle:LineSegment
-                    End="17.500000409782,29.377196399569" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18495,36 +18639,36 @@ where b.opportunityid is null</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="369.333333333334,292"
-          Size="369.333333333334,334.666666666667"
+          PanelSize="293.333333333334,308"
+          Size="293.333333333334,350.666666666667"
           Id="Package\Check Quote Headers are there in Products for Open"
-          TopLeft="837.70832085051,67.9122744384788" />
+          TopLeft="1112.70832085051,88.9122744384789" />
         <NodeLayout
-          Size="168,42.6666666666667"
-          Id="Package\Load Quote Products to Stg tables\Execute SQL Task"
-          TopLeft="41.6388843047122,11.2163760863146" />
+          Size="136,42.6666666666667"
+          Id="Package\Load Quote Products to Stg tables\truncate stg table"
+          TopLeft="46.8333333333333,5.50000000000004" />
         <NodeLayout
           Size="218.666666666667,42.6666666666667"
           Id="Package\Load Quote Products to Stg tables\Load Stage Quote Prd closed"
-          TopLeft="23.5833290182053,94.0818747220755" />
+          TopLeft="5.50000000000003,108.166666666667" />
         <NodeLayout
           Size="214.666666666667,42.6666666666667"
           Id="Package\Load Quote Products to Stg tables\Load Stage Quote Prd Open"
-          TopLeft="31.9166622273623,173.146203695645" />
+          TopLeft="7.50000000000003,210.833333333334" />
         <EdgeLayout
           Id="Package\Load Quote Products to Stg tables.PrecedenceConstraints[Constraint]"
-          TopLeft="136.083328956117,136.748541388742">
+          TopLeft="114.833333333333,150.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36.3976623069032"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,28.8976623069032">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.8976623069032" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18535,18 +18679,18 @@ where b.opportunityid is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Quote Products to Stg tables.PrecedenceConstraints[Constraint 1]"
-          TopLeft="129.277773328125,53.8830427529813">
+          TopLeft="114.833333333333,48.1666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.1988319690942"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,32.6988319690942">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.6988319690942" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18558,36 +18702,36 @@ where b.opportunityid is null</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="274,270.666666666667"
-          Size="274,313.333333333334"
+          PanelSize="229.333333333334,308.666666666667"
+          Size="229.333333333334,351.333333333334"
           Id="Package\Load Quote Products to Stg tables"
-          TopLeft="99.9999985098835,88.0350893763411" />
+          TopLeft="127.999998509884,88.0350893763411" />
         <NodeLayout
           Size="168,42.6666666666667"
           Id="Package\Sequence Container _Sid\Execute SQL Task"
-          TopLeft="41.6388843047122,11.2163760863146" />
+          TopLeft="30.8333333333333,5.50000000000004" />
         <NodeLayout
           Size="218.666666666667,42.6666666666667"
           Id="Package\Sequence Container _Sid\Load Stage Quote Prd closed"
-          TopLeft="23.5833290182053,94.0818747220755" />
+          TopLeft="5.50000000000003,108.166666666667" />
         <NodeLayout
           Size="214.666666666667,42.6666666666667"
           Id="Package\Sequence Container _Sid\Load Stage Quote Prd Open"
-          TopLeft="31.9166622273623,173.146203695645" />
+          TopLeft="7.50000000000003,210.833333333334" />
         <EdgeLayout
           Id="Package\Sequence Container _Sid.PrecedenceConstraints[Constraint]"
-          TopLeft="136.083328956117,136.748541388742">
+          TopLeft="114.833333333333,150.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36.3976623069032"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,28.8976623069032">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.8976623069032" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18598,18 +18742,18 @@ where b.opportunityid is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container _Sid.PrecedenceConstraints[Constraint 1]"
-          TopLeft="129.277773328125,53.8830427529813">
+          TopLeft="114.833333333333,48.1666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.1988319690942"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,32.6988319690942">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.6988319690942" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18621,24 +18765,95 @@ where b.opportunityid is null</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="274,270.666666666667"
-          Size="274,313.333333333334"
+          PanelSize="229.333333333334,308"
+          Size="229.333333333334,351.333333333334"
           Id="Package\Sequence Container _Sid"
-          TopLeft="1400.37498553035,77.7719312884254" />
+          TopLeft="1510.37498553035,94.7719312884255" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="373.999998509883,245.833334883055">
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1035.6666649282,261.771927414124">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="76.6666664183155,0"
+              EndConnector="77.0416559223108,0"
               Start="0,0"
-              End="69.1666664183155,0">
+              End="69.5416559223108,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="69.1666664183155,0" />
+                    End="69.5416559223108,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="214.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Update Source Type for closed quote prd'"
+          TopLeft="5.50000000000001,5.50000000000004" />
+        <NodeLayout
+          Size="209.333333333334,42.6666666666667"
+          Id="Package\Sequence Container\Update Source Type for open quote prd'"
+          TopLeft="8.16666666666667,108.166666666667" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="112.833333333333,48.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="225.333333333334,206"
+          Size="225.333333333334,248.666666666667"
+          Id="Package\Sequence Container"
+          TopLeft="433,130" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="357.333331843217,263.701756043008">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.6666681567828,-9.36842270967441"
+              Start="0,0"
+              End="68.1666681567828,-9.36842270967441">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="33.8333340783914,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.8333340783914,0"
+                    Point2="37.8333340783914,0"
+                    Point3="37.8333340783914,-4" />
+                  <mssgle:LineSegment
+                    End="37.8333340783914,-5.36842270967441" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.8333340783914,-5.36842270967441"
+                    Point2="37.8333340783914,-9.36842270967441"
+                    Point3="41.8333340783914,-9.36842270967441" />
+                  <mssgle:LineSegment
+                    End="68.1666681567828,-9.36842270967441" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18648,31 +18863,19 @@ where b.opportunityid is null</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="777.999998261532,246.631580389768">
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="658.333333333333,256.815790194884">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="59.7083225889778,-11.385972617956"
+              EndConnector="77.333331594866,0"
               Start="0,0"
-              End="52.2083225889778,-11.385972617956">
+              End="69.833331594866,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="25.8541612944889,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="25.8541612944889,0"
-                    Point2="29.8541612944889,0"
-                    Point3="29.8541612944889,-4" />
-                  <mssgle:LineSegment
-                    End="29.8541612944889,-7.38597261795599" />
-                  <mssgle:CubicBezierSegment
-                    Point1="29.8541612944889,-7.38597261795599"
-                    Point2="29.8541612944889,-11.385972617956"
-                    Point3="33.8541612944889,-11.385972617956" />
-                  <mssgle:LineSegment
-                    End="52.2083225889778,-11.385972617956" />
+                    End="69.833331594866,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
