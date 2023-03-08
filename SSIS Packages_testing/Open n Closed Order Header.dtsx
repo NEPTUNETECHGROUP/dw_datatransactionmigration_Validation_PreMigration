@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Open n Closed Order Header"
   DTS:PackageType="5"
-  DTS:VersionBuild="77"
-  DTS:VersionGUID="{16077DD0-A97A-4CF7-A2F8-0FB44EA18730}">
+  DTS:VersionBuild="78"
+  DTS:VersionGUID="{9086350C-B26A-47BB-B569-A24DEAFCFDEE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -15393,7 +15393,7 @@
                           cachedLength="255"
                           cachedName="OldOrderGuid"
                           externalMetadataColumnId="Package\Sequence Container\Load Stage Order HDR closed\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldOrderGUID]"
-                          lineageId="Package\Sequence Container\Load Stage Order HDR closed\2222:invalid" />
+                          lineageId="Package\Sequence Container\Load Stage Order HDR closed\2228:invalid" />
                         <inputColumn
                           refId="Package\Sequence Container\Load Stage Order HDR closed\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Total Tax (Base)]"
                           cachedDataType="wstr"
@@ -16030,7 +16030,7 @@
                           cachedLength="255"
                           cachedName="OldOpportunityNumber"
                           externalMetadataColumnId="Package\Sequence Container\Load Stage Order HDR closed\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldOpportunityNumber]"
-                          lineageId="Package\Sequence Container\Load Stage Order HDR closed\2223:invalid" />
+                          lineageId="Package\Sequence Container\Load Stage Order HDR closed\2229:invalid" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -19431,7 +19431,7 @@
                           cachedLength="255"
                           cachedName="OldOrderGuid"
                           externalMetadataColumnId="Package\Sequence Container\Load Stage Order HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldOrderGUID]"
-                          lineageId="Package\Sequence Container\Load Stage Order HDR open\2224:invalid" />
+                          lineageId="Package\Sequence Container\Load Stage Order HDR open\2230:invalid" />
                         <inputColumn
                           refId="Package\Sequence Container\Load Stage Order HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Total Tax (Base)]"
                           cachedDataType="wstr"
@@ -20068,7 +20068,7 @@
                           cachedLength="255"
                           cachedName="OldOpportunityNumber"
                           externalMetadataColumnId="Package\Sequence Container\Load Stage Order HDR open\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldOpportunityNumber]"
-                          lineageId="Package\Sequence Container\Load Stage Order HDR open\2225:invalid" />
+                          lineageId="Package\Sequence Container\Load Stage Order HDR open\2231:invalid" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">

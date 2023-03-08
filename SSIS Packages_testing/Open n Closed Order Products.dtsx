@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="137"
-  DTS:VersionGUID="{A246374D-AFBD-4C7D-AE64-BF66730975E3}">
+  DTS:VersionBuild="147"
+  DTS:VersionGUID="{4018D5DC-99C8-4943-82DC-41510276DDA1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -614,6 +614,18 @@ where b.salesorderid is null</property>
                           cachedName="Comment"
                           externalMetadataColumnId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[comments]"
                           lineageId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]" />
+                        <inputColumn
+                          refId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Closed Order Products ID]"
+                          cachedDataType="guid"
+                          cachedName="Closed Order Products ID"
+                          externalMetadataColumnId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Closed Order Products ID]"
+                          lineageId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Closed Order Products ID]" />
+                        <inputColumn
+                          refId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Closed Order Header ID]"
+                          cachedDataType="guid"
+                          cachedName="Closed Order Header ID"
+                          externalMetadataColumnId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Closed Order Header ID]"
+                          lineageId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Closed Order Header ID]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -637,6 +649,14 @@ where b.salesorderid is null</property>
                           dataType="str"
                           length="50"
                           name="comments" />
+                        <externalMetadataColumn
+                          refId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Closed Order Products ID]"
+                          dataType="guid"
+                          name="Closed Order Products ID" />
+                        <externalMetadataColumn
+                          refId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Closed Order Header ID]"
+                          dataType="guid"
+                          name="Closed Order Header ID" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -690,7 +710,10 @@ where b.salesorderid is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct a.salesorderdetailid as OrderProduct,b.ordernumber as [order],a.lineitemnumber as [Line Item Number], 
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct a.salesorderdetailid as OrderProduct,b.ordernumber as [order],
+a.salesorderid as [Closed Order Products ID],
+b.salesorderid as [Closed Order Header ID],
+a.lineitemnumber as [Line Item Number], 
 'Order Product Not in Order Header Closed' as Comment
 from migration.stg_order_product_header_closed a
 left join migration.[stg_crm_order_header_closed]  b on a.salesorderid=b.salesorderid
@@ -770,6 +793,24 @@ where b.salesorderid is null</property>
                           lineageId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
                           name="Comment"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Closed Order Products ID]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Closed Order Products ID]"
+                          lineageId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Closed Order Products ID]"
+                          name="Closed Order Products ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Closed Order Header ID]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Closed Order Header ID]"
+                          lineageId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Closed Order Header ID]"
+                          name="Closed Order Header ID"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -792,6 +833,14 @@ where b.salesorderid is null</property>
                           dataType="str"
                           length="40"
                           name="Comment" />
+                        <externalMetadataColumn
+                          refId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Closed Order Products ID]"
+                          dataType="guid"
+                          name="Closed Order Products ID" />
+                        <externalMetadataColumn
+                          refId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Closed Order Header ID]"
+                          dataType="guid"
+                          name="Closed Order Header ID" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -810,6 +859,16 @@ where b.salesorderid is null</property>
                           length="100"
                           lineageId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[order]"
                           name="order" />
+                        <outputColumn
+                          refId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Closed Order Products ID]"
+                          dataType="guid"
+                          lineageId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Closed Order Products ID]"
+                          name="Closed Order Products ID" />
+                        <outputColumn
+                          refId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Closed Order Header ID]"
+                          dataType="guid"
+                          lineageId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Closed Order Header ID]"
+                          name="Closed Order Header ID" />
                         <outputColumn
                           refId="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Line Item Number]"
                           dataType="i4"
@@ -1026,6 +1085,18 @@ where b.salesorderid is null</property>
                           cachedName="Comment"
                           externalMetadataColumnId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[comments]"
                           lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]" />
+                        <inputColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Open Order Products ID]"
+                          cachedDataType="guid"
+                          cachedName="Open Order Products ID"
+                          externalMetadataColumnId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Open Order Products ID]"
+                          lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Output].Columns[Open Order Products ID]" />
+                        <inputColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Open Order Header ID]"
+                          cachedDataType="guid"
+                          cachedName="Open Order Header ID"
+                          externalMetadataColumnId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Open Order Header ID]"
+                          lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Output].Columns[Open Order Header ID]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1060,6 +1131,14 @@ where b.salesorderid is null</property>
                           dataType="str"
                           length="50"
                           name="comments" />
+                        <externalMetadataColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Open Order Products ID]"
+                          dataType="guid"
+                          name="Open Order Products ID" />
+                        <externalMetadataColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Open Order Header ID]"
+                          dataType="guid"
+                          name="Open Order Header ID" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -1114,7 +1193,10 @@ where b.salesorderid is null</property>
                       description="The SQL command to be executed."
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct a.salesorderid as OldOrderGUID,c.ntg_opportunitynumber as Opportunitynumber,
-a.ordernumber as [Order ID],a.statecode as [Status], a.statuscode as [Status Reason],
+a.ordernumber as [Order ID],
+a.salesorderid as [Open Order Products ID],
+b.salesorderid as [Open Order Header ID],
+a.statecode as [Status], a.statuscode as [Status Reason],
 'Order Header Not in Order Product Open' as Comment
 from migration.[stg_crm_order_header_open] a
 left join migration.stg_order_product_header_open  b on a.salesorderid=b.salesorderid
@@ -1216,6 +1298,24 @@ where b.salesorderid is null</property>
                           lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
                           name="Comment"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Output].Columns[Open Order Products ID]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Open Order Products ID]"
+                          lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Output].Columns[Open Order Products ID]"
+                          name="Open Order Products ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Output].Columns[Open Order Header ID]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Open Order Header ID]"
+                          lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Output].Columns[Open Order Header ID]"
+                          name="Open Order Header ID"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1249,6 +1349,14 @@ where b.salesorderid is null</property>
                           dataType="str"
                           length="38"
                           name="Comment" />
+                        <externalMetadataColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Open Order Products ID]"
+                          dataType="guid"
+                          name="Open Order Products ID" />
+                        <externalMetadataColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Open Order Header ID]"
+                          dataType="guid"
+                          name="Open Order Header ID" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -1273,6 +1381,16 @@ where b.salesorderid is null</property>
                           length="100"
                           lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Order ID]"
                           name="Order ID" />
+                        <outputColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Open Order Products ID]"
+                          dataType="guid"
+                          lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Open Order Products ID]"
+                          name="Open Order Products ID" />
+                        <outputColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Open Order Header ID]"
+                          dataType="guid"
+                          lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Open Order Header ID]"
+                          name="Open Order Header ID" />
                         <outputColumn
                           refId="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Status]"
                           dataType="wstr"
@@ -1434,6 +1552,18 @@ where b.salesorderid is null</property>
                           cachedName="Comment"
                           externalMetadataColumnId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[comments]"
                           lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]" />
+                        <inputColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Closed Order Products ID]"
+                          cachedDataType="guid"
+                          cachedName="Closed Order Products ID"
+                          externalMetadataColumnId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Closed Order Products ID]"
+                          lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Closed Order Products ID]" />
+                        <inputColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Closed Order Header ID]"
+                          cachedDataType="guid"
+                          cachedName="Closed Order Header ID"
+                          externalMetadataColumnId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Closed Order Header ID]"
+                          lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Closed Order Header ID]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1457,6 +1587,14 @@ where b.salesorderid is null</property>
                           dataType="str"
                           length="50"
                           name="comments" />
+                        <externalMetadataColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Closed Order Products ID]"
+                          dataType="guid"
+                          name="Closed Order Products ID" />
+                        <externalMetadataColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Closed Order Header ID]"
+                          dataType="guid"
+                          name="Closed Order Header ID" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -1510,10 +1648,13 @@ where b.salesorderid is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct a.salesorderdetailid as OrderProduct,b.ordernumber as [order],a.lineitemnumber as [Line Item Number],
-'Order Product Not in Order Header Open' as Comment
-from migration.stg_order_product_header_open a
-left join migration.[stg_crm_order_header_open]  b on a.salesorderid=b.salesorderid
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct a.salesorderdetailid as OrderProduct,b.ordernumber as [order],
+a.salesorderid as [Closed Order Products ID],
+b.salesorderid as [Closed Order Header ID],
+a.lineitemnumber as [Line Item Number], 
+'Order Product Not in Order Header Closed' as Comment
+from migration.stg_order_product_header_closed a
+left join migration.[stg_crm_order_header_closed]  b on a.salesorderid=b.salesorderid
 where b.salesorderid is null</property>
                     <property
                       dataType="System.String"
@@ -1590,6 +1731,24 @@ where b.salesorderid is null</property>
                           lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
                           name="Comment"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Closed Order Products ID]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Closed Order Products ID]"
+                          lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Closed Order Products ID]"
+                          name="Closed Order Products ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Closed Order Header ID]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Closed Order Header ID]"
+                          lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].Columns[Closed Order Header ID]"
+                          name="Closed Order Header ID"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1610,8 +1769,16 @@ where b.salesorderid is null</property>
                           refId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comment]"
                           codePage="1252"
                           dataType="str"
-                          length="38"
+                          length="40"
                           name="Comment" />
+                        <externalMetadataColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Closed Order Products ID]"
+                          dataType="guid"
+                          name="Closed Order Products ID" />
+                        <externalMetadataColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Closed Order Header ID]"
+                          dataType="guid"
+                          name="Closed Order Header ID" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -1631,6 +1798,16 @@ where b.salesorderid is null</property>
                           lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[order]"
                           name="order" />
                         <outputColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Closed Order Products ID]"
+                          dataType="guid"
+                          lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Closed Order Products ID]"
+                          name="Closed Order Products ID" />
+                        <outputColumn
+                          refId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Closed Order Header ID]"
+                          dataType="guid"
+                          lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Closed Order Header ID]"
+                          name="Closed Order Header ID" />
+                        <outputColumn
                           refId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Line Item Number]"
                           dataType="i4"
                           lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Line Item Number]"
@@ -1639,7 +1816,7 @@ where b.salesorderid is null</property>
                           refId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
                           codePage="1252"
                           dataType="str"
-                          length="38"
+                          length="40"
                           lineageId="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
                           name="Comment" />
                         <outputColumn
@@ -12806,6 +12983,40 @@ where s.value is null and s1.value is null</property>
               SQLTask:SqlStatementSource="&#xA;truncate table [migration].[stg_crm_order_header_closed]&#xA;truncate table [migration].[stg_crm_order_header_open]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Order Header using Quantity\Update Source Type for Order HDr Closed"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{e4c182d8-de8c-4068-b325-a0ff9d6ea876}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Source Type for Order HDr Closed"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{8A81AFA0-2875-4211-9282-1A61B889ECC7}"
+              SQLTask:SqlStatementSource="update migration.stg_crm_order_header_closed set sourcetype= 'C'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Order Header using Quantity\Update Source Type for Order HDr Open"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{c0d6e69c-bd97-44e2-99d4-60d5dbbf4759}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Source Type for Order HDr Open"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{8A81AFA0-2875-4211-9282-1A61B889ECC7}"
+              SQLTask:SqlStatementSource="update migration.stg_crm_order_header_open set sourcetype= 'O'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
@@ -12824,6 +13035,22 @@ where s.value is null and s1.value is null</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\Load Order Header using Quantity\Load Stage Order HDR closed" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Order Header using Quantity.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{92295C03-0B95-47BF-9276-8AFD0AEBAE0B}"
+          DTS:From="Package\Load Order Header using Quantity\Load Stage Order HDR open"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Load Order Header using Quantity\Update Source Type for Order HDr Closed" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Order Header using Quantity.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{B62FC2F2-46A8-4DB1-A903-8E47B3154E55}"
+          DTS:From="Package\Load Order Header using Quantity\Update Source Type for Order HDr Closed"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Load Order Header using Quantity\Update Source Type for Order HDr Open" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -26175,6 +26402,40 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
               SQLTask:SqlStatementSource="&#xA;truncate table migration.stg_order_product_header_closed&#xA;truncate table migration.stg_order_product_header_open" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loading Order Product for Open and Closed\Update Source Type for Order Product Closed"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{a029c5ca-c4df-44b3-a205-7e122ef4a5c6}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Source Type for Order Product Closed"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{8A81AFA0-2875-4211-9282-1A61B889ECC7}"
+              SQLTask:SqlStatementSource="update migration.stg_order_product_header_closed set sourcetype= 'C'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loading Order Product for Open and Closed\Update Source Type for Order Product Open"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{68f57c52-1678-41b4-ad07-0222528d4db2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Source Type for Order Product Open"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{8A81AFA0-2875-4211-9282-1A61B889ECC7}"
+              SQLTask:SqlStatementSource="update migration.stg_order_product_header_open set sourcetype= 'O'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
@@ -26201,6 +26462,22 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\Loading Order Product for Open and Closed\Load Stage Order Prd open" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loading Order Product for Open and Closed.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{0DD2724E-4C99-4141-ACEE-FA817FAC48B2}"
+          DTS:From="Package\Loading Order Product for Open and Closed\Load Stage Order Prd open"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Loading Order Product for Open and Closed\Update Source Type for Order Product Closed" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loading Order Product for Open and Closed.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{4DC9F0C7-4B31-4747-A0CC-4C9455D7BB27}"
+          DTS:From="Package\Loading Order Product for Open and Closed\Update Source Type for Order Product Closed"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Loading Order Product for Open and Closed\Update Source Type for Order Product Open" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
@@ -26404,10 +26681,10 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="360,266"
+          PanelSize="360,265.333333333334"
           Size="360,308.666666666667"
           Id="Package\Check Order Headers are there in Products for Open"
-          TopLeft="1682.98608603267,444.385971394492" />
+          TopLeft="1634.98608603267,438.385971394492" />
         <NodeLayout
           Size="262.666666666667,42.6666666666667"
           Id="Package\Load missing statuses for Opp Quotes and orders\Load Missing Statuses to a stage table"
@@ -26525,11 +26802,63 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="217.333333333334,42.6666666666667"
+          Id="Package\Load Order Header using Quantity\Update Source Type for Order HDr Closed"
+          TopLeft="35.0555553858482,283.052638061159" />
+        <EdgeLayout
+          Id="Package\Load Order Header using Quantity.PrecedenceConstraints[Constraint 2]"
+          TopLeft="140.444440764686,241.087723522416">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.964914538743"
+              Start="0,0"
+              End="0,34.464914538743">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.464914538743" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="213.333333333334,42.6666666666667"
+          Id="Package\Load Order Header using Quantity\Update Source Type for Order HDr Open"
+          TopLeft="35.0555553858481,359.052638061159" />
+        <EdgeLayout
+          Id="Package\Load Order Header using Quantity.PrecedenceConstraints[Constraint 3]"
+          TopLeft="142.722222052515,325.719304727825">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.3333333333332"
+              Start="0,0"
+              End="0,25.8333333333332">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.8333333333332" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="275.333333333334,296"
-          Size="275.333333333334,338.666666666667"
+          PanelSize="275.333333333334,454"
+          Size="275.333333333334,496.666666666667"
           Id="Package\Load Order Header using Quantity"
           TopLeft="497.430554401753,67.6608199869974" />
         <NodeLayout
@@ -26572,45 +26901,33 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
         <NodeLayout
           Size="217.333333333334,42.6666666666667"
           Id="Package\Loading Order Product for Open and Closed\Load Stage Order Prd closed"
-          TopLeft="23.4999928846958,116.736846724375" />
+          TopLeft="12.1666666666667,108.166666666667" />
         <NodeLayout
           Size="210.666666666667,42.6666666666667"
           Id="Package\Loading Order Product for Open and Closed\Load Stage Order Prd open"
-          TopLeft="36.6944360894462,293.450292537895" />
+          TopLeft="15.5,313.5" />
         <NodeLayout
           Size="230.666666666667,42.6666666666667"
           Id="Package\Loading Order Product for Open and Closed\Load Stage Order Prd open_old"
-          TopLeft="36.8333260193468,203.894741169304" />
+          TopLeft="5.50000000000003,210.833333333333" />
         <NodeLayout
           Size="161.333333333334,42.6666666666667"
           Id="Package\Loading Order Product for Open and Closed\truncate stg table"
-          TopLeft="48.4999925121665,25.5087748317948" />
+          TopLeft="40.1666666666667,5.49999999999993" />
         <EdgeLayout
           Id="Package\Loading Order Product for Open and Closed.PrecedenceConstraints[Constraint]"
-          TopLeft="132.166659551362,159.403513391042">
+          TopLeft="120.833333333333,150.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="19.9999998013177,44.4912277782623"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="19.9999998013177,36.9912277782623">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.2456138891312" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.2456138891312"
-                    Point2="0,22.2456138891312"
-                    Point3="4,22.2456138891312" />
-                  <mssgle:LineSegment
-                    End="15.9999998013177,22.2456138891312" />
-                  <mssgle:CubicBezierSegment
-                    Point1="15.9999998013177,22.2456138891312"
-                    Point2="19.9999998013177,22.2456138891312"
-                    Point3="19.9999998013177,26.2456138891312" />
-                  <mssgle:LineSegment
-                    End="19.9999998013177,36.9912277782623" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -26621,18 +26938,18 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Loading Order Product for Open and Closed.PrecedenceConstraints[Constraint 1]"
-          TopLeft="130.666659365098,68.1754414984615">
+          TopLeft="120.833333333333,48.1666666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48.5614052259135"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,41.0614052259135">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.0614052259135" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -26643,30 +26960,70 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Loading Order Product for Open and Closed.PrecedenceConstraints[Constraint 2]"
-          TopLeft="152.16665935268,246.561407835971">
+          TopLeft="120.833333333333,253.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-10.1388899299006,46.8888847019243"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="-10.1388899299006,39.3888847019243">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.4444423509622" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.4444423509622"
-                    Point2="0,23.4444423509622"
-                    Point3="-4,23.4444423509622" />
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="230.666666666667,42.6666666666667"
+          Id="Package\Loading Order Product for Open and Closed\Update Source Type for Order Product Closed"
+          TopLeft="5.50000000000006,416.166666666667" />
+        <EdgeLayout
+          Id="Package\Loading Order Product for Open and Closed.PrecedenceConstraints[Constraint 3]"
+          TopLeft="120.833333333333,356.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-6.13888992990061,23.4444423509622" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-6.13888992990061,23.4444423509622"
-                    Point2="-10.1388899299006,23.4444423509622"
-                    Point3="-10.1388899299006,27.4444423509622" />
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="225.333333333334,42.6666666666667"
+          Id="Package\Loading Order Product for Open and Closed\Update Source Type for Order Product Open"
+          TopLeft="8.16666666666671,518.833333333333" />
+        <EdgeLayout
+          Id="Package\Loading Order Product for Open and Closed.PrecedenceConstraints[Constraint 4]"
+          TopLeft="120.833333333333,458.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-10.1388899299006,39.3888847019243" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -26678,36 +27035,36 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="274.666666666667,398.666666666667"
-          Size="274.666666666667,442"
+          PanelSize="241.333333333334,616.666666666667"
+          Size="241.333333333334,659.333333333334"
           Id="Package\Loading Order Product for Open and Closed"
           TopLeft="858.541654767469,38.1812861390247" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="1133.20832143414,259.181286139025">
+          TopLeft="1099.8749881008,367.847952805691">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="131.722216166557,-51.1052697603061"
+              EndConnector="165.055549499888,-159.771936426973"
               Start="0,0"
-              End="124.222216166557,-51.1052697603061">
+              End="157.555549499888,-159.771936426973">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="61.8611080832785,0" />
+                    End="78.5277747499439,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="61.8611080832785,0"
-                    Point2="65.8611080832785,0"
-                    Point3="65.8611080832785,-4" />
+                    Point1="78.5277747499439,0"
+                    Point2="82.5277747499439,0"
+                    Point3="82.5277747499439,-4" />
                   <mssgle:LineSegment
-                    End="65.8611080832785,-47.1052697603061" />
+                    End="82.5277747499439,-155.771936426973" />
                   <mssgle:CubicBezierSegment
-                    Point1="65.8611080832785,-47.1052697603061"
-                    Point2="65.8611080832785,-51.1052697603061"
-                    Point3="69.8611080832785,-51.1052697603061" />
+                    Point1="82.5277747499439,-155.771936426973"
+                    Point2="82.5277747499439,-159.771936426973"
+                    Point3="86.5277747499439,-159.771936426973" />
                   <mssgle:LineSegment
-                    End="124.222216166557,-51.1052697603061" />
+                    End="157.555549499888,-159.771936426973" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -26744,26 +27101,26 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="21.0694440460475,75.508777768108"
+              EndConnector="-26.9305559539466,69.5087777681075"
               Start="0,0"
-              End="21.0694440460475,68.008777768108">
+              End="-26.9305559539466,62.0087777681075">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.754388884054" />
+                    End="0,30.7543888840538" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33.754388884054"
-                    Point2="0,37.754388884054"
-                    Point3="4,37.754388884054" />
+                    Point1="0,30.7543888840538"
+                    Point2="0,34.7543888840538"
+                    Point3="-4,34.7543888840538" />
                   <mssgle:LineSegment
-                    End="17.0694440460475,37.754388884054" />
+                    End="-22.9305559539466,34.7543888840538" />
                   <mssgle:CubicBezierSegment
-                    Point1="17.0694440460475,37.754388884054"
-                    Point2="21.0694440460475,37.754388884054"
-                    Point3="21.0694440460475,41.754388884054" />
+                    Point1="-22.9305559539466,34.7543888840538"
+                    Point2="-26.9305559539466,34.7543888840538"
+                    Point3="-26.9305559539466,38.7543888840538" />
                   <mssgle:LineSegment
-                    End="21.0694440460475,68.008777768108" />
+                    End="-26.9305559539466,62.0087777681075" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -26778,9 +27135,9 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="80.0416656825716,12.666674904656"
+              EndConnector="80.0416656825716,91.666674904656"
               Start="0,0"
-              End="72.5416656825716,12.666674904656">
+              End="72.5416656825716,91.666674904656">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -26791,13 +27148,13 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
                     Point2="40.0208328412858,0"
                     Point3="40.0208328412858,4" />
                   <mssgle:LineSegment
-                    End="40.0208328412858,8.66667490465596" />
+                    End="40.0208328412858,87.666674904656" />
                   <mssgle:CubicBezierSegment
-                    Point1="40.0208328412858,8.66667490465596"
-                    Point2="40.0208328412858,12.666674904656"
-                    Point3="44.0208328412858,12.666674904656" />
+                    Point1="40.0208328412858,87.666674904656"
+                    Point2="40.0208328412858,91.666674904656"
+                    Point3="44.0208328412858,91.666674904656" />
                   <mssgle:LineSegment
-                    End="72.5416656825716,12.666674904656" />
+                    End="72.5416656825716,91.666674904656" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -26808,13 +27165,13 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="772.763887735086,236.994153320331">
+          TopLeft="772.763887735086,315.994153320331">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="85.7777670323826,22.187132818694"
+              EndConnector="85.7777670323826,51.8537994853606"
               Start="0,0"
-              End="78.2777670323826,22.187132818694">
+              End="78.2777670323826,51.8537994853606">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -26825,13 +27182,13 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
                     Point2="42.8888835161913,0"
                     Point3="42.8888835161913,4" />
                   <mssgle:LineSegment
-                    End="42.8888835161913,18.187132818694" />
+                    End="42.8888835161913,47.8537994853606" />
                   <mssgle:CubicBezierSegment
-                    Point1="42.8888835161913,18.187132818694"
-                    Point2="42.8888835161913,22.187132818694"
-                    Point3="46.8888835161913,22.187132818694" />
+                    Point1="42.8888835161913,47.8537994853606"
+                    Point2="42.8888835161913,51.8537994853606"
+                    Point3="46.8888835161913,51.8537994853606" />
                   <mssgle:LineSegment
-                    End="78.2777670323826,22.187132818694" />
+                    End="78.2777670323826,51.8537994853606" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -27054,7 +27411,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
           Id="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source"
           TopLeft="434.666666666667,36" />
         <NodeLayout
-          Size="174.666666666667,42.6666666666667"
+          Size="145.333333333334,42.6666666666667"
           Id="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Destination"
           TopLeft="463.333333333333,127.333333333333" />
         <EdgeLayout
@@ -27063,26 +27420,26 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="38.6666666666667,48.6666666666667"
+              EndConnector="23.9999999999993,48.6666666666664"
               Start="0,0"
-              End="38.6666666666667,41.1666666666667">
+              End="23.9999999999993,41.1666666666664">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.3333333333333" />
+                    End="0,20.3333333333332" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.3333333333333"
-                    Point2="0,24.3333333333333"
-                    Point3="4,24.3333333333333" />
+                    Point1="0,20.3333333333332"
+                    Point2="0,24.3333333333332"
+                    Point3="4,24.3333333333332" />
                   <mssgle:LineSegment
-                    End="34.6666666666667,24.3333333333333" />
+                    End="19.9999999999993,24.3333333333332" />
                   <mssgle:CubicBezierSegment
-                    Point1="34.6666666666667,24.3333333333333"
-                    Point2="38.6666666666667,24.3333333333333"
-                    Point3="38.6666666666667,28.3333333333333" />
+                    Point1="19.9999999999993,24.3333333333332"
+                    Point2="23.9999999999993,24.3333333333332"
+                    Point3="23.9999999999993,28.3333333333332" />
                   <mssgle:LineSegment
-                    End="38.6666666666667,41.1666666666667" />
+                    End="23.9999999999993,41.1666666666664" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -27119,7 +27476,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Load missing statuses for Opp Quotes and orders\Load Missing Statuses to a stage table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\Load missing statuses for Opp Quotes and orders\Load Missing Statuses to a stage table\OLE DB Source"
@@ -27159,7 +27516,9 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -27185,7 +27544,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Load Order Header using Quantity\Load Stage Order HDR closed">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\Load Order Header using Quantity\Load Stage Order HDR closed\OLE DB Source"
@@ -27213,7 +27572,9 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -27244,7 +27605,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Load Order Header using Quantity\Load Stage Order HDR open">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\Load Order Header using Quantity\Load Stage Order HDR open\OLE DB Source"
@@ -27284,7 +27645,9 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -27386,7 +27749,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Loading Order Product for Open and Closed\Load Stage Order Prd closed">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="174.666666666667,42.6666666666667"
           Id="Package\Loading Order Product for Open and Closed\Load Stage Order Prd closed\OLE DB Destination"
@@ -27426,7 +27789,9 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -27457,7 +27822,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Loading Order Product for Open and Closed\Load Stage Order Prd open">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\Loading Order Product for Open and Closed\Load Stage Order Prd open\OLE DB Source"
@@ -27497,7 +27862,9 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
