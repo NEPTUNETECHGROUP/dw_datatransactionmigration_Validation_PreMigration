@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="147"
-  DTS:VersionGUID="{4018D5DC-99C8-4943-82DC-41510276DDA1}">
+  DTS:VersionBuild="150"
+  DTS:VersionGUID="{292FA628-4388-4FA0-8C3C-D9A6CD3BD6B6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4316,7 +4316,7 @@ where s.value is null and s1.value is null</property>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select hdr.* from migration.[stg_crm_order_header] hdr
     left join
-  (select distinct salesorderid from [migration].stg_order_product_header where quantity &lt;&gt; 0) product
+  (select distinct salesorderid from [migration].stg_order_product_header where ntg_backlogquantity &lt;&gt; 0) product
    on hdr.salesorderid = product.salesorderid
   where product.salesorderid is null</property>
                     <property
@@ -9645,7 +9645,7 @@ where s.value is null and s1.value is null</property>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select hdr.* from migration.[stg_crm_order_header] hdr
   inner join 
-      (select distinct salesorderid from [migration].stg_order_product_header where quantity &lt;&gt; 0) product
+      (select distinct salesorderid from [migration].stg_order_product_header where ntg_backlogquantity &lt;&gt; 0) product
       on hdr.salesorderid = product.salesorderid</property>
                     <property
                       dataType="System.String"
@@ -17876,7 +17876,7 @@ where s.value is null and s1.value is null</property>
                       description="The SQL command to be executed."
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select a.* from [migration].stg_order_product_header a
-left join (select distinct salesorderdetailid from [migration].stg_order_product_header where quantity&lt;&gt;0) b 
+left join (select distinct salesorderdetailid from [migration].stg_order_product_header where ntg_backlogquantity&lt;&gt;0) b 
 on a.salesorderdetailid = b.salesorderdetailid
 where b.salesorderdetailid is null</property>
                     <property
@@ -21320,7 +21320,7 @@ where b.salesorderdetailid is null</property>
                       description="The SQL command to be executed."
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select a.* from [migration].stg_order_product_header a
-inner join (select distinct salesorderdetailid from [migration].stg_order_product_header where quantity &lt;&gt; 0) b 
+inner join (select distinct salesorderdetailid from [migration].stg_order_product_header where ntg_backlogquantity &lt;&gt; 0) b 
 on a.salesorderdetailid = b.salesorderdetailid</property>
                     <property
                       dataType="System.String"
@@ -26681,7 +26681,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="360,265.333333333334"
+          PanelSize="360,266"
           Size="360,308.666666666667"
           Id="Package\Check Order Headers are there in Products for Open"
           TopLeft="1634.98608603267,438.385971394492" />
@@ -26746,6 +26746,14 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
           Size="161.333333333334,42.6666666666667"
           Id="Package\Load Order Header using Quantity\truncate stg table"
           TopLeft="48.4999925121665,24.7485408993567" />
+        <NodeLayout
+          Size="217.333333333334,42.6666666666667"
+          Id="Package\Load Order Header using Quantity\Update Source Type for Order HDr Closed"
+          TopLeft="35.0555553858482,283.052638061159" />
+        <NodeLayout
+          Size="213.333333333334,42.6666666666667"
+          Id="Package\Load Order Header using Quantity\Update Source Type for Order HDr Open"
+          TopLeft="35.0555553858481,359.052638061159" />
         <EdgeLayout
           Id="Package\Load Order Header using Quantity.PrecedenceConstraints[Constraint]"
           TopLeft="138.833326143523,150.280706201784">
@@ -26802,10 +26810,6 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="217.333333333334,42.6666666666667"
-          Id="Package\Load Order Header using Quantity\Update Source Type for Order HDr Closed"
-          TopLeft="35.0555553858482,283.052638061159" />
         <EdgeLayout
           Id="Package\Load Order Header using Quantity.PrecedenceConstraints[Constraint 2]"
           TopLeft="140.444440764686,241.087723522416">
@@ -26828,10 +26832,6 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="213.333333333334,42.6666666666667"
-          Id="Package\Load Order Header using Quantity\Update Source Type for Order HDr Open"
-          TopLeft="35.0555553858481,359.052638061159" />
         <EdgeLayout
           Id="Package\Load Order Header using Quantity.PrecedenceConstraints[Constraint 3]"
           TopLeft="142.722222052515,325.719304727825">
@@ -26914,6 +26914,14 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
           Size="161.333333333334,42.6666666666667"
           Id="Package\Loading Order Product for Open and Closed\truncate stg table"
           TopLeft="40.1666666666667,5.49999999999993" />
+        <NodeLayout
+          Size="230.666666666667,42.6666666666667"
+          Id="Package\Loading Order Product for Open and Closed\Update Source Type for Order Product Closed"
+          TopLeft="5.50000000000006,416.166666666667" />
+        <NodeLayout
+          Size="225.333333333334,42.6666666666667"
+          Id="Package\Loading Order Product for Open and Closed\Update Source Type for Order Product Open"
+          TopLeft="8.16666666666671,518.833333333333" />
         <EdgeLayout
           Id="Package\Loading Order Product for Open and Closed.PrecedenceConstraints[Constraint]"
           TopLeft="120.833333333333,150.833333333333">
@@ -26980,10 +26988,6 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="230.666666666667,42.6666666666667"
-          Id="Package\Loading Order Product for Open and Closed\Update Source Type for Order Product Closed"
-          TopLeft="5.50000000000006,416.166666666667" />
         <EdgeLayout
           Id="Package\Loading Order Product for Open and Closed.PrecedenceConstraints[Constraint 3]"
           TopLeft="120.833333333333,356.166666666667">
@@ -27006,10 +27010,6 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="225.333333333334,42.6666666666667"
-          Id="Package\Loading Order Product for Open and Closed\Update Source Type for Order Product Open"
-          TopLeft="8.16666666666671,518.833333333333" />
         <EdgeLayout
           Id="Package\Loading Order Product for Open and Closed.PrecedenceConstraints[Constraint 4]"
           TopLeft="120.833333333333,458.833333333333">
@@ -27204,7 +27204,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Check Order Headers are there in Products for Historical\Closed_Order Headers not in Order Prds">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\Check Order Headers are there in Products for Historical\Closed_Order Headers not in Order Prds\OLE DB Source"
@@ -27232,7 +27232,9 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -27263,7 +27265,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\Check Order Headers are there in Products for Historical\Closed_Order Products not in Order header\OLE DB Source"
@@ -27303,7 +27305,9 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -27334,15 +27338,15 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source"
-          TopLeft="420,50" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="174.666666666667,42.6666666666667"
           Id="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Destination"
           TopLeft="436,143.333333333333" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds\OLE DB Source"
+          TopLeft="420,50" />
         <EdgeLayout
           Id="Package\Check Order Headers are there in Products for Open\Open_Order Headers not in Order Prds.Paths[OLE DB Source Output]"
           TopLeft="497.333333333333,92.6666666666667">
@@ -27374,7 +27378,9 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -27405,7 +27411,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\Check Order Headers are there in Products for Open\Open_Order Products not in Order header\OLE DB Source"
@@ -27445,7 +27451,9 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -27544,7 +27552,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Load Order Header using Quantity\Load Stage Order HDR closed">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\Load Order Header using Quantity\Load Stage Order HDR closed\OLE DB Source"
@@ -27572,9 +27580,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -27605,7 +27611,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Load Order Header using Quantity\Load Stage Order HDR open">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\Load Order Header using Quantity\Load Stage Order HDR open\OLE DB Source"
@@ -27645,9 +27651,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -27678,7 +27682,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Loading Order Hrdr and Product from a single file each\Load Order Prd Open and closed to single table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\Loading Order Hrdr and Product from a single file each\Load Order Prd Open and closed to single table\OLE DB Source"
@@ -27718,7 +27722,9 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -27749,7 +27755,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Loading Order Product for Open and Closed\Load Stage Order Prd closed">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="174.666666666667,42.6666666666667"
           Id="Package\Loading Order Product for Open and Closed\Load Stage Order Prd closed\OLE DB Destination"
@@ -27789,9 +27795,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -27822,7 +27826,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
     design-time-name="Package\Loading Order Product for Open and Closed\Load Stage Order Prd open">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\Loading Order Product for Open and Closed\Load Stage Order Prd open\OLE DB Source"
@@ -27862,9 +27866,7 @@ on a.salesorderdetailid = b.salesorderdetailid</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
